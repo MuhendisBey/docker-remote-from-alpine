@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  remote-docker-from-alpine:
+    image: kageja/docker-remote-exp
+    build:
+      context: ./
+      dockerfile: ./dockerfile
+    restart: "no"
+    volumes:
+      - //var/run/docker.sock:/var/run/docker.sock
