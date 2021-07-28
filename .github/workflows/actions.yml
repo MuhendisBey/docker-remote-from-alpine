@@ -29,8 +29,8 @@ jobs:
         DOCKER_USER: ${{ secrets.DOCKER_HUB_UNAME }}
         DOCKER_PASSWORD: ${{ secrets.DOCKER_HUB_PASSWD }}
       run: |
-        docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
-#       run: echo "test $DOCKER_USER"
+        docker login -u -p
+#        docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
       
     - name: Docker Push
       run: |
