@@ -20,6 +20,7 @@ jobs:
       env:
         DOCKER_USER: ${{secrets.DOCKER_HUB_UNAME}}
         DOCKER_PASSWORD: ${{secrets.DOCKER_HUB_PASSWD}}
-      run: docker login -u $DOCKER_USER -p $DOCKER_PASSWORD 
+      run: |
+        docker login -u $DOCKER_USER -p $DOCKER_PASSWORD 
     - name: Docker Push
       run: docker push kageja/docker-remote-ex
