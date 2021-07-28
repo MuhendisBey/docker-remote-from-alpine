@@ -15,8 +15,9 @@ jobs:
     steps:
     - name: Test Env
       env:
-        testEnv: ${{ secrets.TEST }} 
-      run: echo $testEnv
+        testEnv: asd
+        pestEnv: ${{ secrets.TEST }}
+      run: echo testenv= $testEnv pestEnv= $pestEnv
       
     - uses: actions/checkout@v2
     - name: Build the Docker image
