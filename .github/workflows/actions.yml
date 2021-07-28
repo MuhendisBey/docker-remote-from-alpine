@@ -18,8 +18,8 @@ jobs:
       run: docker build . --file Dockerfile --tag kageja/docker-remote-exp:$(date +%s)
     - name: docker login
       env:
-        DOCKER_USER: ${{secrets.DOCKER_USER}}
-        DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
+        DOCKER_USER: ${{secrets.DOCKER_HUB_UNAME}}
+        DOCKER_PASSWORD: ${{secrets.DOCKER_HUB_PASSWD}}
       run: docker login -u $DOCKER_USER -p $DOCKER_PASSWORD 
     - name: Docker Push
       run: docker push kageja/docker-remote-ex
