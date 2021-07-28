@@ -21,7 +21,9 @@ jobs:
       env:
         DOCKER_USER: ${{secrets.DOCKER_HUB_UNAME}}
         DOCKER_PASSWORD: ${{secrets.DOCKER_HUB_PASSWD}}
-      run: echo ${{secrets.DOCKER_HUB_PASSWD}} | docker login -u ${{secrets.DOCKER_HUB_UNAME}} --password-stdin
+#       run: echo ${{secrets.DOCKER_HUB_PASSWD}} | docker login -u ${{secrets.DOCKER_HUB_UNAME}} --password-stdin
+      run: echo PASSWD | docker login -u UNAME --password-stdin
+      
       
 #     - name: Docker Login
 #       uses: docker/login-action@v1.10.0
