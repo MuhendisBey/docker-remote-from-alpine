@@ -19,7 +19,7 @@ jobs:
     - name : Checkout
     - uses: actions/checkout@v2
     
-    - name: Build the Docker image
+    - name: Build the Docker img
       run: |
         docker build . --file dockerfile --tag kageja/docker-remote-exp:$(date +%s)
       
