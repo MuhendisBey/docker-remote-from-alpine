@@ -12,11 +12,11 @@ jobs:
     steps:
     - name: Test Env
       env:
-        testEnv: asd
+        testEnv: adasd
         pestEnv: ${{ secrets.TEST }}
         dependabotEnv: ${{ secrets.DEPENDABOT_TEST }}
       run: |
-        echo testenv= $testEnv pestEnv= $pestEnv
+        echo testenv= $testEnv pestEnv= $pestEnv dependabotEnv= $dependabotEnv
       
     - name : Checkout
       uses: actions/checkout@v2
