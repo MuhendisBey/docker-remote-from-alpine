@@ -17,7 +17,7 @@ jobs:
       run: echo testenv= $testEnv pestEnv= $pestEnv
       
     - name : Checkout
-    - uses: actions/checkout@v2
+      uses: actions/checkout@v2
     
     - name: Build the Docker img
       run: docker build . --file dockerfile --tag kageja/docker-remote-exp:$(date +%s)
