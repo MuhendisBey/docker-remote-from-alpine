@@ -7,11 +7,8 @@ on:
     branches: [ master ]
 
 jobs:
-
-  build:
-
+  buildAndPush:
     runs-on: ubuntu-latest
-
     steps:
     - name: Test Env
       env:
@@ -19,16 +16,21 @@ jobs:
         pestEnv: ${{ secrets.TEST }}
       run: echo testenv= $testEnv pestEnv= $pestEnv
       
+    - name : Checkout
     - uses: actions/checkout@v2
+    
     - name: Build the Docker image
-      run: docker build . --file dockerfile --tag kageja/docker-remote-exp:$(date +%s)
+      run: |
+        docker build . --file dockerfile --tag kageja/docker-remote-exp:$(date +%s)
       
     - name: Docker Login
       env:
         DOCKER_USER: ${{ secrets.DOCKER_HUB_UNAME }}
         DOCKER_PASSWORD: ${{ secrets.DOCKER_HUB_PASSWD }}
-      run: docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+      run: |
+        docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
 #       run: echo "test $DOCKER_USER"
       
     - name: Docker Push
-      run: docker push kageja/docker-remote-exp
+      run: |
+        docker push kageja/docker-remote-exp
