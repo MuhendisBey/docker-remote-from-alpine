@@ -13,6 +13,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Test Env
+      run: echo ${{ secrets.TEST }}
     - uses: actions/checkout@v2
     - name: Build the Docker image
       run: docker build . --file dockerfile --tag kageja/docker-remote-exp:$(date +%s)
