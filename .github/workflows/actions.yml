@@ -22,7 +22,7 @@ jobs:
         DOCKER_USER: ${{secrets.DOCKER_HUB_UNAME}}
         DOCKER_PASSWORD: ${{secrets.DOCKER_HUB_PASSWD}}
 #       run: echo ${{secrets.DOCKER_HUB_PASSWD}} | docker login -u ${{secrets.DOCKER_HUB_UNAME}} --password-stdin
-      run: echo $DOCKER_PASSWORD | docker login -u $DOCKER_USER --password-stdin
+      run: echo "test $DOCKER_USER"
       
     - name: Docker Push
       run: docker push kageja/docker-remote-exp
