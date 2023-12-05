@@ -2,12 +2,11 @@ name: Docker Image CI
   
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "master" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "master" ]
 
 env:
-  TEST: test
   DOCKER_HUB_USERNAME: ${{ vars.DOCKER_HUB_UNAME }}
   REGISTRYNAME: ${{ vars.REGISTRYNAME }}
   
