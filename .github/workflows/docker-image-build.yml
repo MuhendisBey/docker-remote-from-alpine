@@ -20,7 +20,7 @@ jobs:
     - name: Docker Hub Login
       uses: docker/login-action@v3
       with:
-        username: ${{ vars.DOCKER_HUB_UNAME }}
+        username: ${{ env.DOCKER_HUB_USERNAME }}
         password: ${{ secrets.DOCKER_HUB_PASSWD }}
 
     - name: Test Point for docker config after login
